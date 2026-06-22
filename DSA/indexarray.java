@@ -1,4 +1,4 @@
-package DSA;
+
 
 public class indexarray {
     public static void main(String[] args) {
