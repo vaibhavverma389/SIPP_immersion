@@ -10,14 +10,14 @@ public class abc {
             left = right = null;
         }
     }
-
+//
     static class Tree {
         Node root;
 
         void add(int x) {
             root = insert(root, x);
         }
-
+//
         private Node insert(Node node, int x) {
             if (node == null)
                 return new Node(x);
@@ -29,7 +29,7 @@ public class abc {
 
             return node;
         }
-
+//
         void inorder(Node node) {
             if (node != null) {
                 inorder(node.left);
@@ -37,7 +37,7 @@ public class abc {
                 inorder(node.right);
             }
         }
-
+//
         void preorder(Node node) {
             if (node != null) {
                 System.out.print(node.data + " ");
@@ -45,7 +45,7 @@ public class abc {
                 preorder(node.right);
             }
         }
-
+//
         void postorder(Node node) {
             if (node != null) {
                 postorder(node.left);
@@ -53,6 +53,7 @@ public class abc {
                 System.out.print(node.data + " ");
             }
         }
+        //
         void bfs(Node node)
         {
             if(node==null)
@@ -70,10 +71,44 @@ public class abc {
             }
 
         }
+        //
         int sumofnode(Node node)
         {
             if(node==null) return 0;
             return node.data + sumofnode(node.left) + sumofnode(node.right);
+        }
+        //
+        int lefthight(Node node)
+        {
+            if(node==null) return 0;
+            return 1+ lefthight(node.left);
+        }
+        //
+        int righthight(Node node)
+        {
+            if(node==null) return 0;
+            return 1+ righthight(node.right);
+        }
+        //
+        int countNode(Node node)
+        {
+            if(node==null)
+            {
+                return 0;
+            }
+            return 1+ countNode(node.left)+ countNode(node.right);
+
+        }
+        //
+        int countleaf(Node node)
+        {
+            if(node == null)
+            {
+                return 0;
+            }
+            if(node.left==null) return 1;
+            if(node.right==null) return 1;
+            return countleaf(node.left) + countleaf(node.right);
         }
     }
 
@@ -96,5 +131,9 @@ public class abc {
         t.bfs(t.root);
         System.out.println();
         System.err.println(t.sumofnode(t.root));
+        System.err.println(t.lefthight(t.root));
+        System.err.println(t.righthight(t.root));
+        System.err.println(t.countNode(t.root));
+        System.err.println(t.countleaf(t.root));
     }
 }
