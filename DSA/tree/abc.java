@@ -13,6 +13,8 @@ public class abc {
 //
     static class Tree {
         Node root;
+        Node a;
+        Node b;
 
         void add(int x) {
             root = insert(root, x);
@@ -110,6 +112,12 @@ public class abc {
             if(node.right==null) return 1;
             return countleaf(node.left) + countleaf(node.right);
         }
+        static boolean isIdentical(Node a,Node b)
+        {
+            if(a==null && b==null) return true;
+            if(a==null || b== null ) return false;
+            return (a.data == b.data) && isIdentical(a.left, b.left) && isIdentical(a.right, b.right);
+        }
     }
 
     public static void main(String[] args) {
@@ -122,6 +130,17 @@ public class abc {
         t.add(5);
         t.add(6);
         t.add(8);
+        Tree t1 = new Tree();
+
+        t1.add(5);
+        t1.add(3);
+        t1.add(7);
+        Tree t2 = new Tree();
+
+        t2.add(5);
+        t2.add(4);
+        t2.add(7);
+        System.out.println(Tree.isIdentical(t1.root,t2.root));
         t.inorder(t.root);
         System.out.println();
         t.preorder(t.root);
