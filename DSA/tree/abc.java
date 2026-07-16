@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class abc {
 
     static class Node {
@@ -32,6 +33,15 @@ public class abc {
             return node;
         }
 //
+        int height(Node node){
+            if(node == null)
+            {
+                return 0;
+            }
+            int lefthight=height(node.left);
+            int righthight=height(node.right);
+            return 1+Math.max(lefthight,righthight);
+        }
         void inorder(Node node) {
             if (node != null) {
                 inorder(node.left);
@@ -154,5 +164,6 @@ public class abc {
         System.err.println(t.righthight(t.root));
         System.err.println(t.countNode(t.root));
         System.err.println(t.countleaf(t.root));
+        System.err.println(t.height(t.root));
     }
 }
